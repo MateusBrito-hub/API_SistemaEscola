@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import { StatusCodes } from 'http-status-codes';
 import * as yup from 'yup';
+import { validation } from '../../shared/middleware';
 
 interface IUser {
     name: string;
@@ -8,31 +8,23 @@ interface IUser {
     password: string,
     confirmPassword: string
 }
+interface IQuery {
+    filter?: string
+}
 
-const bodyValidation : yup.ObjectSchema<IUser> = yup.object().shape({
-    name: yup.string().required().min(3),
-    user: yup.string().required().min(3),
-    password: yup.string().required().min(6),
-    confirmPassword: yup.string().required()
-})
+export const createValidation = validation((getSchema) => ({
+    body: getSchema<IUser>(yup.object().shape({
+        name: yup.string().required().min(3),
+        user: yup.string().required().min(3),
+        password: yup.string().required().min(6),
+        confirmPassword: yup.string().required()
+    })),
+    query: getSchema<IQuery>(yup.object().shape({
+        filter: yup.string()
+    }))
+}));
 
 export const create = async (req: Request<{},{},IUser>, res: Response) => {
-
-    let validatedData : IUser | undefined = undefined
-
-    try {
-        validatedData = await bodyValidation.validate(req.body); 
-    } catch (error) {
-        const yupError = error as yup.ValidationError;
-
-        return res.json({
-            error : {
-                default: yupError.message
-            }
-        });
-    }
-
-    console.log(validatedData);
-    
+    console.log(req.body);
     return res.send('Create!');
 };
