@@ -1,15 +1,13 @@
 import { Request, Response } from 'express';
 import * as yup from 'yup';
 import { validation } from '../../shared/middleware';
+import { StatusCodes } from 'http-status-codes';
 
 interface IUser {
     name: string;
     user: string,
     password: string,
     confirmPassword: string
-}
-interface IQuery {
-    filter?: string
 }
 
 export const createValidation = validation((getSchema) => ({
@@ -18,13 +16,10 @@ export const createValidation = validation((getSchema) => ({
         user: yup.string().required().min(3),
         password: yup.string().required().min(6),
         confirmPassword: yup.string().required()
-    })),
-    query: getSchema<IQuery>(yup.object().shape({
-        filter: yup.string()
     }))
 }));
 
 export const create = async (req: Request<{},{},IUser>, res: Response) => {
     console.log(req.body);
-    return res.send('Create!');
+    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).send('Not Implemented');
 };
