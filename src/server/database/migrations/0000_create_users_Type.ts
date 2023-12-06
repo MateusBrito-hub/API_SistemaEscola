@@ -6,7 +6,7 @@ export async function up(knex: Knex){
         .schema
         .createTable(ETableName.user_Type, table => {
             table.bigIncrements('id').primary().index();
-            table.string('name', 150).index().notNullable();
+            table.string('name', 150).checkLength('<=', 150).index().notNullable();
 
             table.comment('Tabela utilizada para armazenamento os tipos de usuarios');
         })

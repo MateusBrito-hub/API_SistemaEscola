@@ -14,12 +14,12 @@ describe('Users - GetAll', () => {
         expect(data.statusCode).toEqual(StatusCodes.CREATED);
         
         const res = await testServer
-            .get('/users')
+            .get('/users?filter=')
             .send();
 
-        const body = Object.values(res.body);
-        expect(body.length).toBeGreaterThan(0);
+        console.log('x-total-count:', Number(res.headers['x-total-count']));
         expect(Number(res.headers['x-total-count'])).toBeGreaterThan(0);
         expect(res.statusCode).toEqual(StatusCodes.OK);
+        expect(res.body.length).toBeGreaterThan(0);
     });
 });

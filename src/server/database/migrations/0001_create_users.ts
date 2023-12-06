@@ -7,9 +7,9 @@ export async function up(knex: Knex){
         .schema
         .createTable(ETableName.user, table => {
             table.bigIncrements('id').primary().index();
-            table.string('name', 150).index().notNullable();
-            table.string('user', 150).notNullable();
-            table.string('password', 150).notNullable();
+            table.string('name', 150).checkLength('<=', 150).index().notNullable();
+            table.string('user', 150).checkLength('<=', 150).notNullable();
+            table.string('password', 150).checkLength('<=', 150).notNullable();
             table.integer('userTypeId').unsigned();
 
             table.foreign('userTypeId').references('id').inTable('user_Type');
