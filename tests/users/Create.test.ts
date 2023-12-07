@@ -114,6 +114,34 @@ describe('Users - Create', () => {
         expect(res.statusCode).toEqual(StatusCodes.BAD_REQUEST);
         expect(res.body).toHaveProperty('errors.body.password');
     });
+    it('Create User without userTypeId informed', async () => {
+        const res = await testServer
+            .post('/users')
+            .send({
+                name: 'Mateus',
+                user: 'Brito',
+                email: 'mateusvsbrito6@gmail.com',
+                password: '12nubivfvuvk',
+                userTypeId: null
+            });
+
+        expect(res.statusCode).toEqual(StatusCodes.BAD_REQUEST);
+        expect(res.body).toHaveProperty('errors.body.userTypeId');
+    });
+    it('Create User with userTypeId less than one', async () => {
+        const res = await testServer
+            .post('/users')
+            .send({
+                name: 'Mateus',
+                user: 'Brito',
+                email: 'mateusvsbrito6@gmail.com',
+                password: '12nubivfvuvk',
+                userTypeId: 0
+            });
+
+        expect(res.statusCode).toEqual(StatusCodes.BAD_REQUEST);
+        expect(res.body).toHaveProperty('errors.body.userTypeId');
+    });
     it('Create user without data', async () => {
         const res = await testServer
             .post('/users')

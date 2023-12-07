@@ -8,7 +8,7 @@ describe('Users - UpdateById', () => {
             .send({
                 name: 'Mateus Vicente Santos Brito',
                 user: 'Brito',
-                email: 'mateusvsbrito6@gmail.com',
+                email: 'mateusvsbrito1@gmail.com',
                 password: '12nubivfvuvk',
                 userTypeId: 1
             });
@@ -20,7 +20,7 @@ describe('Users - UpdateById', () => {
             .send({
                 name: 'Mateus',
                 user: 'Brito',
-                email: 'mateusvsbrito6@gmail.com',
+                email: 'mateusvsbrito1@gmail.com',
                 password: '12nubivfvuvk',
                 userTypeId: 1
             });
@@ -33,7 +33,7 @@ describe('Users - UpdateById', () => {
             .send({
                 name: 'Mateus Vicente Santos Brito',
                 user: 'Brito',
-                email: 'mateusvsbrito6@gmail.com',
+                email: 'mateusvsbrito2@gmail.com',
                 password: '12nubivfvuvk',
                 userTypeId: 1
             });
@@ -45,7 +45,7 @@ describe('Users - UpdateById', () => {
             .send({
                 name: 'Ma',
                 user: 'Brito',
-                email: 'mateusvsbrito6@gmail.com',
+                email: 'mateusvsbrito2@gmail.com',
                 password: '12nubivfvuvk',
                 userTypeId: 1
             });
@@ -59,7 +59,7 @@ describe('Users - UpdateById', () => {
             .send({
                 name: 'Mateus Vicente Santos Brito',
                 user: 'Brito',
-                email: 'mateusvsbrito6@gmail.com',
+                email: 'mateusvsbrito3@gmail.com',
                 password: '12nubivfvuvk',
                 userTypeId: 1
             });
@@ -71,7 +71,7 @@ describe('Users - UpdateById', () => {
             .send({
                 name: null,
                 user: 'Brito',
-                email: 'mateusvsbrito6@gmail.com',
+                email: 'mateusvsbrito3@gmail.com',
                 password: '12nubivfvuvk',
                 userTypeId: 1
             });
@@ -85,7 +85,7 @@ describe('Users - UpdateById', () => {
             .send({
                 name: 'Mateus Vicente Santos Brito',
                 user: 'Brito',
-                email: 'mateusvsbrito6@gmail.com',
+                email: 'mateusvsbrito4@gmail.com',
                 password: '12nubivfvuvk',
                 userTypeId: 1
             });
@@ -97,7 +97,7 @@ describe('Users - UpdateById', () => {
             .send({
                 name: 'Mateus',
                 user: 'Br',
-                email: 'mateusvsbrito6@gmail.com',
+                email: 'mateusvsbrito4@gmail.com',
                 password: '12nubivfvuvk',
                 userTypeId: 1
             });
@@ -111,7 +111,7 @@ describe('Users - UpdateById', () => {
             .send({
                 name: 'Mateus Vicente Santos Brito',
                 user: 'Brito',
-                email: 'mateusvsbrito6@gmail.com',
+                email: 'mateusvsbrito5@gmail.com',
                 password: '12nubivfvuvk',
                 userTypeId: 1
             });
@@ -123,7 +123,7 @@ describe('Users - UpdateById', () => {
             .send({
                 name: 'Mateus',
                 user: null,
-                email: 'mateusvsbrito6@gmail.com',
+                email: 'mateusvsbrito5@gmail.com',
                 password: '12nubivfvuvk',
                 userTypeId: 1
             });
@@ -163,7 +163,7 @@ describe('Users - UpdateById', () => {
             .send({
                 name: 'Mateus Vicente Santos Brito',
                 user: 'Brito',
-                email: 'mateusvsbrito6@gmail.com',
+                email: 'mateusvsbrito7@gmail.com',
                 password: '12nubivfvuvk',
                 userTypeId: 1
             });
@@ -175,7 +175,7 @@ describe('Users - UpdateById', () => {
             .send({
                 name: 'Mateus',
                 user: 'Brito',
-                email: 'mateusvsbrito6@gmail.com',
+                email: 'mateusvsbrito7@gmail.com',
                 password: null,
                 userTypeId: 1
             });
@@ -189,7 +189,7 @@ describe('Users - UpdateById', () => {
             .send({
                 name: 'Mateus Vicente Santos Brito',
                 user: 'Brito',
-                email: 'mateusvsbrito6@gmail.com',
+                email: 'mateusvsbrito8@gmail.com',
                 password: '12nubivfvuvk',
                 userTypeId: 1
             });
@@ -209,7 +209,7 @@ describe('Users - UpdateById', () => {
             .send({
                 name: 'Mateus',
                 user: 'Brito',
-                email: 'mateusvsbrito6@gmail.com',
+                email: 'mateusvsbrito8@gmail.com',
                 password: '12nubivfvuvk',
                 userTypeId: 1
             });

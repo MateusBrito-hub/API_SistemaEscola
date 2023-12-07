@@ -7,7 +7,7 @@ export const create = async (user: Omit<IUser, 'id'>) : Promise<number | Error> 
     try {
 
         const [{ count }] = await Knex(ETableName.userType)
-            .where('name','like', user.userTypeId)
+            .where('id','like', user.userTypeId)
             .count<[{ count: number}]>('* as count');
 
         if (count === 0) {
