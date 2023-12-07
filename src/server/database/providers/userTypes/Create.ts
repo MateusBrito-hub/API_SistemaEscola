@@ -1,20 +1,11 @@
 import { ETableName } from '../../EtableNames';
 import { Knex } from '../../knex';
-import { IUser } from '../../models';
+import { IUserTypes } from '../../models';
 
-export const create = async (user: Omit<IUser, 'id'>) : Promise<number | Error> => {
+export const create = async (user: Omit<IUserTypes, 'id'>) : Promise<number | Error> => {
 
     try {
-
-        const [{ count }] = await Knex(ETableName.userType)
-            .where('name','like', user.userTypeId)
-            .count<[{ count: number}]>('* as count');
-
-        if (count === 0) {
-            return new Error('O tipo de usuario usado não foi cadastrado');
-        }
-
-        const [result] = await Knex(ETableName.user)
+        const [result] = await Knex(ETableName.userType)
             .insert(user)
             .returning('id');
 

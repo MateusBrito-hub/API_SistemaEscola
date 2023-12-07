@@ -1,11 +1,11 @@
 import { ETableName } from '../../EtableNames';
 import { Knex } from '../../knex';
-import { IUser } from '../../models';
+import { IUserTypes } from '../../models';
 
-export const getById = async (id: number) : Promise<IUser | Error> => {
+export const getById = async (id: number) : Promise<IUserTypes | Error> => {
 
     try {
-        const result = await Knex(ETableName.user)
+        const result = await Knex(ETableName.userType)
             .select('*')
             .where('id', '=', id)
             .first();

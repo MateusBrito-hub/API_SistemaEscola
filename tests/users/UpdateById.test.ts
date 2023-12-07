@@ -8,7 +8,9 @@ describe('Users - UpdateById', () => {
             .send({
                 name: 'Mateus Vicente Santos Brito',
                 user: 'Brito',
-                password: '12nubivfvuvk'
+                email: 'mateusvsbrito6@gmail.com',
+                password: '12nubivfvuvk',
+                userTypeId: 1
             });
 
         expect(data.statusCode).toEqual(StatusCodes.CREATED);
@@ -18,7 +20,9 @@ describe('Users - UpdateById', () => {
             .send({
                 name: 'Mateus',
                 user: 'Brito',
-                password: '12nubivfvuvk'
+                email: 'mateusvsbrito6@gmail.com',
+                password: '12nubivfvuvk',
+                userTypeId: 1
             });
 
         expect(res.statusCode).toEqual(StatusCodes.NO_CONTENT);
@@ -29,7 +33,9 @@ describe('Users - UpdateById', () => {
             .send({
                 name: 'Mateus Vicente Santos Brito',
                 user: 'Brito',
-                password: '12nubivfvuvk'
+                email: 'mateusvsbrito6@gmail.com',
+                password: '12nubivfvuvk',
+                userTypeId: 1
             });
 
         expect(data.statusCode).toEqual(StatusCodes.CREATED);
@@ -39,7 +45,9 @@ describe('Users - UpdateById', () => {
             .send({
                 name: 'Ma',
                 user: 'Brito',
-                password: '12nubivfvuvk'
+                email: 'mateusvsbrito6@gmail.com',
+                password: '12nubivfvuvk',
+                userTypeId: 1
             });
 
         expect(res.statusCode).toEqual(StatusCodes.BAD_REQUEST);
@@ -51,7 +59,9 @@ describe('Users - UpdateById', () => {
             .send({
                 name: 'Mateus Vicente Santos Brito',
                 user: 'Brito',
-                password: '12nubivfvuvk'
+                email: 'mateusvsbrito6@gmail.com',
+                password: '12nubivfvuvk',
+                userTypeId: 1
             });
 
         expect(data.statusCode).toEqual(StatusCodes.CREATED);
@@ -61,7 +71,9 @@ describe('Users - UpdateById', () => {
             .send({
                 name: null,
                 user: 'Brito',
-                password: '12nubivfvuvk'
+                email: 'mateusvsbrito6@gmail.com',
+                password: '12nubivfvuvk',
+                userTypeId: 1
             });
 
         expect(res.statusCode).toEqual(StatusCodes.BAD_REQUEST);
@@ -73,7 +85,9 @@ describe('Users - UpdateById', () => {
             .send({
                 name: 'Mateus Vicente Santos Brito',
                 user: 'Brito',
-                password: '12nubivfvuvk'
+                email: 'mateusvsbrito6@gmail.com',
+                password: '12nubivfvuvk',
+                userTypeId: 1
             });
 
         expect(data.statusCode).toEqual(StatusCodes.CREATED);
@@ -83,7 +97,9 @@ describe('Users - UpdateById', () => {
             .send({
                 name: 'Mateus',
                 user: 'Br',
-                password: '12nubivfvuvk'
+                email: 'mateusvsbrito6@gmail.com',
+                password: '12nubivfvuvk',
+                userTypeId: 1
             });
 
         expect(res.statusCode).toEqual(StatusCodes.BAD_REQUEST);
@@ -95,7 +111,9 @@ describe('Users - UpdateById', () => {
             .send({
                 name: 'Mateus Vicente Santos Brito',
                 user: 'Brito',
-                password: '12nubivfvuvk'
+                email: 'mateusvsbrito6@gmail.com',
+                password: '12nubivfvuvk',
+                userTypeId: 1
             });
 
         expect(data.statusCode).toEqual(StatusCodes.CREATED);
@@ -105,7 +123,9 @@ describe('Users - UpdateById', () => {
             .send({
                 name: 'Mateus',
                 user: null,
-                password: '12nubivfvuvk'
+                email: 'mateusvsbrito6@gmail.com',
+                password: '12nubivfvuvk',
+                userTypeId: 1
             });
 
         expect(res.statusCode).toEqual(StatusCodes.BAD_REQUEST);
@@ -117,7 +137,9 @@ describe('Users - UpdateById', () => {
             .send({
                 name: 'Mateus Vicente Santos Brito',
                 user: 'Brito',
-                password: '12nubivfvuvk'
+                email: 'mateusvsbrito6@gmail.com',
+                password: '12nubivfvuvk',
+                userTypeId: 1
             });
 
         expect(data.statusCode).toEqual(StatusCodes.CREATED);
@@ -127,7 +149,9 @@ describe('Users - UpdateById', () => {
             .send({
                 name: 'Mateus',
                 user: 'Brito',
-                password: '12nub'
+                email: 'mateusvsbrito6@gmail.com',
+                password: '12nub',
+                userTypeId: 1
             });
 
         expect(res.statusCode).toEqual(StatusCodes.BAD_REQUEST);
@@ -139,7 +163,9 @@ describe('Users - UpdateById', () => {
             .send({
                 name: 'Mateus Vicente Santos Brito',
                 user: 'Brito',
-                password: '12nubivfvuvk'
+                email: 'mateusvsbrito6@gmail.com',
+                password: '12nubivfvuvk',
+                userTypeId: 1
             });
 
         expect(data.statusCode).toEqual(StatusCodes.CREATED);
@@ -149,7 +175,9 @@ describe('Users - UpdateById', () => {
             .send({
                 name: 'Mateus',
                 user: 'Brito',
-                password: null
+                email: 'mateusvsbrito6@gmail.com',
+                password: null,
+                userTypeId: 1
             });
 
         expect(res.statusCode).toEqual(StatusCodes.BAD_REQUEST);
@@ -161,7 +189,9 @@ describe('Users - UpdateById', () => {
             .send({
                 name: 'Mateus Vicente Santos Brito',
                 user: 'Brito',
-                password: '12nubivfvuvk'
+                email: 'mateusvsbrito6@gmail.com',
+                password: '12nubivfvuvk',
+                userTypeId: 1
             });
 
         expect(data.statusCode).toEqual(StatusCodes.CREATED);
@@ -179,7 +209,9 @@ describe('Users - UpdateById', () => {
             .send({
                 name: 'Mateus',
                 user: 'Brito',
-                password: '12nubivfvuvk'
+                email: 'mateusvsbrito6@gmail.com',
+                password: '12nubivfvuvk',
+                userTypeId: 1
             });
 
         expect(res.statusCode).toEqual(StatusCodes.INTERNAL_SERVER_ERROR);

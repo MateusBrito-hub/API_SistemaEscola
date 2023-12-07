@@ -7,12 +7,11 @@ export async function up(knex: Knex){
         .schema
         .createTable(ETableName.user, table => {
             table.bigIncrements('id').primary().index();
-            table.string('name', 150).checkLength('<=', 150).index().notNullable();
+            table.string('name').index().notNullable();
             table.string('user', 150).checkLength('<=', 150).notNullable();
+            table.string('email').unique().notNullable();
             table.string('password', 150).checkLength('<=', 150).notNullable();
-            table.integer('userTypeId').unsigned();
-
-            table.foreign('userTypeId').references('id').inTable('user_Type');
+            table.bigInteger('userTypeId').index().notNullable().references('id').inTable(ETableName.userType).onUpdate('CASCADE').onDelete('RESTRICT');
 
             table.comment('Tabela utilizada para armazenamento de usuarios');
         })

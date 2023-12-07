@@ -4,14 +4,14 @@ import { ETableName } from '../EtableNames';
 export async function up(knex: Knex){
     return knex
         .schema
-        .createTable(ETableName.user_Type, table => {
+        .createTable(ETableName.userType, table => {
             table.bigIncrements('id').primary().index();
             table.string('name', 150).checkLength('<=', 150).index().notNullable();
 
             table.comment('Tabela utilizada para armazenamento os tipos de usuarios');
         })
         .then(() => {
-            console.log(`# Create table ${ETableName.user_Type}`);
+            console.log(`# Create table ${ETableName.userType}`);
         });
 }
 
@@ -19,9 +19,9 @@ export async function up(knex: Knex){
 export async function down(knex: Knex){
     return knex
         .schema
-        .dropTable(ETableName.user_Type)
+        .dropTable(ETableName.userType)
         .then(() => {
-            console.log(`# Drop table ${ETableName.user_Type}`);
+            console.log(`# Drop table ${ETableName.userType}`);
         });
 }
 

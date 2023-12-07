@@ -2,21 +2,17 @@ import { Request, Response } from 'express';
 import * as yup from 'yup';
 import { validation } from '../../shared/middleware';
 import { StatusCodes } from 'http-status-codes';
-import { IUser } from '../../database/models';
-import { UsersProvider } from '../../database/providers/users';
+import { IUserTypes } from '../../database/models';
+import { UserTypesProvider } from '../../database/providers/userTypes';
 
 interface IParamsProps {
     id?: number,
 }
-interface IBodyProps extends Omit<IUser, 'id'> {}
+interface IBodyProps extends Omit<IUserTypes, 'id'> {}
 
 export const updateByIdValidation = validation((getSchema) => ({
     body: getSchema<IBodyProps>(yup.object().shape({
-        name: yup.string().required().min(3),
-        user: yup.string().required().min(3),
-        email: yup.string().required(),
-        password: yup.string().required().min(6),
-        userTypeId: yup.number().integer().required().moreThan(0)
+        name: yup.string().required().min(3)
     })),
     params: getSchema<IParamsProps>(yup.object().shape({
         id: yup.number().integer().required().moreThan(0)
@@ -30,7 +26,7 @@ export const updateById = async (req: Request<IParamsProps,{},IBodyProps>, res: 
         }
     });
 
-    const result = await UsersProvider.updateById(req.params.id, req.body);
+    const result = await UserTypesProvider.updateById(req.params.id, req.body);
     if (result instanceof Error){
         return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
             errors:{

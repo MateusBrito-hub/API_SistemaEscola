@@ -8,7 +8,9 @@ describe('Users - DeleteById', () => {
             .send({
                 name: 'Mateus Vicente Santos Brito',
                 user: 'Brito',
-                password: '12nubivfvuvk'
+                email: 'mateusvsbrito6@gmail.com',
+                password: '12nubivfvuvk',
+                userTypeId: 1
             });
 
         expect(data.statusCode).toEqual(StatusCodes.CREATED);

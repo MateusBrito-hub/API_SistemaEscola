@@ -8,7 +8,9 @@ describe('Users - Create', () => {
             .send({
                 name: 'Mateus Vicente Santos Brito',
                 user: 'Brito',
-                password: '12nubivfvuvk'
+                email: 'mateusvsbrito6@gmail.com',
+                password: '12nubivfvuvk',
+                userTypeId: 1
             });
 
         expect(res.statusCode).toEqual(StatusCodes.CREATED);
@@ -20,7 +22,9 @@ describe('Users - Create', () => {
             .send({
                 name: 'Ma',
                 user: 'Brito',
-                password: '12nubivfvuvk'
+                email: 'mateusvsbrito6@gmail.com',
+                password: '12nubivfvuvk',
+                userTypeId: 1
             });
 
         expect(res.statusCode).toEqual(StatusCodes.BAD_REQUEST);
@@ -32,7 +36,9 @@ describe('Users - Create', () => {
             .send({
                 name: null,
                 user: 'Brito',
-                password: '12nubivfvuvk'
+                email: 'mateusvsbrito6@gmail.com',
+                password: '12nubivfvuvk',
+                userTypeId: 1
             });
 
         expect(res.statusCode).toEqual(StatusCodes.BAD_REQUEST);
@@ -44,7 +50,9 @@ describe('Users - Create', () => {
             .send({
                 name: 'Mateus',
                 user: 'Br',
-                password: '12nubivfvuvk'
+                email: 'mateusvsbrito6@gmail.com',
+                password: '12nubivfvuvk',
+                userTypeId: 1
             });
 
         expect(res.statusCode).toEqual(StatusCodes.BAD_REQUEST);
@@ -56,11 +64,27 @@ describe('Users - Create', () => {
             .send({
                 name: 'Mateus',
                 user: null,
-                password: '12nubivfvuvk'
+                email: 'mateusvsbrito6@gmail.com',
+                password: '12nubivfvuvk',
+                userTypeId: 1
             });
 
         expect(res.statusCode).toEqual(StatusCodes.BAD_REQUEST);
         expect(res.body).toHaveProperty('errors.body.user');
+    });
+    it('Create User without email informed', async () => {
+        const res = await testServer
+            .post('/users')
+            .send({
+                name: 'Mateus',
+                user: 'Brito',
+                email: null,
+                password: '12nubivfvuvk',
+                userTypeId: 1
+            });
+
+        expect(res.statusCode).toEqual(StatusCodes.BAD_REQUEST);
+        expect(res.body).toHaveProperty('errors.body.email');
     });
     it('Create User with password less than six characters', async () => {
         const res = await testServer
@@ -68,7 +92,9 @@ describe('Users - Create', () => {
             .send({
                 name: 'Mateus',
                 user: 'Brito',
-                password: '12nub'
+                email: 'mateusvsbrito6@gmail.com',
+                password: '12nub',
+                userTypeId: 1
             });
 
         expect(res.statusCode).toEqual(StatusCodes.BAD_REQUEST);
@@ -80,7 +106,9 @@ describe('Users - Create', () => {
             .send({
                 name: 'Mateus',
                 user: 'Brito',
-                password: null
+                email: 'mateusvsbrito6@gmail.com',
+                password: null,
+                userTypeId: 1
             });
 
         expect(res.statusCode).toEqual(StatusCodes.BAD_REQUEST);

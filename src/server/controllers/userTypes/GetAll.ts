@@ -2,9 +2,10 @@ import { Request, Response, query } from 'express';
 import * as yup from 'yup';
 import { validation } from '../../shared/middleware';
 import { StatusCodes } from 'http-status-codes';
-import { UsersProvider } from '../../database/providers/users';
+import { UserTypesProvider } from '../../database/providers/userTypes';
 
 interface IQueryProps {
+    id?: number,
     page?: number,
     limit?: number,
     filter?: string
@@ -12,6 +13,7 @@ interface IQueryProps {
 
 export const getAllValidation = validation((getSchema) => ({
     query: getSchema<IQueryProps>(yup.object().shape({
+        id: yup.number().integer().optional().default(0),
         page: yup.number().optional().moreThan(0),
         limit: yup.number().optional().moreThan(0),
         filter: yup.string().optional()
@@ -19,8 +21,8 @@ export const getAllValidation = validation((getSchema) => ({
 }));
 
 export const getAll = async (req: Request<{},{},{},IQueryProps>, res: Response) => {
-    const result = await UsersProvider.getAll(req.query.page || 1, req.query.limit || 7, req.query.filter || '');
-    const count = await UsersProvider.count(req.query.filter);
+    const result = await UserTypesProvider.getAll(req.query.page || 1, req.query.limit || 7, req.query.filter || '', Number(req.query.id));
+    const count = await UserTypesProvider.count(req.query.filter);
 
     if (result instanceof Error) {
         return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
