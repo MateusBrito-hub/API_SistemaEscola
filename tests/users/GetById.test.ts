@@ -2,6 +2,14 @@ import { StatusCodes } from 'http-status-codes';
 import { testServer } from '../jest.setup';
 
 describe('Users - GetById', () => {
+    let userTypeId: number | undefined = undefined;
+    beforeAll(async () => {
+        const userType = await testServer
+            .post('/userTypes')
+            .send({ name: 'Teste' });
+
+        userTypeId = userType.body;
+    });
     it('Get existing User', async () => {
         const data = await testServer
             .post('/users')
@@ -10,11 +18,11 @@ describe('Users - GetById', () => {
                 user: 'Brito',
                 email: 'mateusvsbrito6@gmail.com',
                 password: '12nubivfvuvk',
-                userTypeId: 1
+                userTypeId
             });
 
         expect(data.statusCode).toEqual(StatusCodes.CREATED);
-        
+
         const res = await testServer
             .get(`/users/${data.body}`)
             .send();

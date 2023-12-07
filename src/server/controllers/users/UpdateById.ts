@@ -19,7 +19,7 @@ export const updateByIdValidation = validation((getSchema) => ({
         userTypeId: yup.number().integer().required().moreThan(0)
     })),
     params: getSchema<IParamsProps>(yup.object().shape({
-        id: yup.number().integer().required().moreThan(0)
+        id: yup.number().integer().required().min(1)
     }))
 }));
 

@@ -13,7 +13,7 @@ export const createValidation = validation((getSchema) => ({
         user: yup.string().required().min(3),
         email: yup.string().required().email(),
         password: yup.string().required().min(6),
-        userTypeId: yup.number().integer().required().moreThan(0)
+        userTypeId: yup.number().integer().required().min(1)
     }))
 }));
 

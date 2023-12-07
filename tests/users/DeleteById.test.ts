@@ -2,6 +2,14 @@ import { StatusCodes } from 'http-status-codes';
 import { testServer } from '../jest.setup';
 
 describe('Users - DeleteById', () => {
+    let userTypeId: number | undefined = undefined;
+    beforeAll(async () => {
+        const userType = await testServer
+            .post('/userTypes')
+            .send({ name: 'Teste' });
+
+        userTypeId = userType.body;
+    });
     it('Delete existing User', async () => {
         const data = await testServer
             .post('/users')
@@ -10,7 +18,7 @@ describe('Users - DeleteById', () => {
                 user: 'Brito',
                 email: 'mateusvsbrito6@gmail.com',
                 password: '12nubivfvuvk',
-                userTypeId: 1
+                userTypeId
             });
 
         expect(data.statusCode).toEqual(StatusCodes.CREATED);
