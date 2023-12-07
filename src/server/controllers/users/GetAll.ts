@@ -1,4 +1,4 @@
-import { Request, Response, query } from 'express';
+import { Request, Response} from 'express';
 import * as yup from 'yup';
 import { validation } from '../../shared/middleware';
 import { StatusCodes } from 'http-status-codes';
