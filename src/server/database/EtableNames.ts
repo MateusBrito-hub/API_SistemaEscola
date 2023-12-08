@@ -1,5 +1,7 @@
 
 export enum ETableName {
     user = 'users',
-    userType = 'userTypes'
+    userType = 'userTypes',
+    employee = 'employees',
+    occupation = 'ocuppations'
 }
