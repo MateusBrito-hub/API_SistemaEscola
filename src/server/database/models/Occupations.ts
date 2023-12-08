@@ -1,4 +1,4 @@
-export interface IUserTypes {
+export interface IOccupation {
     id: number
     name: string
 }
