@@ -4,7 +4,9 @@ import { validation } from '../../shared/middleware';
 import { StatusCodes } from 'http-status-codes';
 import { IUser } from '../../database/models';
 import { UsersProvider } from '../../database/providers/users';
-import { passwordCrypto } from '../../shared/services';
+import { JWTService, passwordCrypto } from '../../shared/services';
+import dotenv from 'dotenv';
+dotenv.config();
 
 interface IBodyProps extends Omit<IUser, 'id' | 'name' | 'userTypeId'> {}
 
@@ -22,7 +24,7 @@ export const signIn = async (req: Request<{},{},IBodyProps>, res: Response) => {
     if (result instanceof Error){
         return res.status(StatusCodes.UNAUTHORIZED).json({
             errors:{
-                default: 'Email ou Senha são invalidos'
+                default: 'Email ou Senha são invalidos!'
             }
         });
     }
@@ -31,10 +33,18 @@ export const signIn = async (req: Request<{},{},IBodyProps>, res: Response) => {
     if (!passwordMatch) {
         return res.status(StatusCodes.UNAUTHORIZED).json({
             errors:{
-                default: 'Email ou Senha são invalidos'
+                default: 'Email ou Senha são invalidos!'
             }
         });
     } else {
-        return res.status(StatusCodes.OK).json({accessToken: 'test.test.test'});
+        const accessToken = JWTService.sign({uid: result.id});
+        if (accessToken === 'JWT_SECRET_NOT_FOUND') {
+            return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+                errors:{
+                    default: 'Erro ao gerar Token de acesso!'
+                }
+            });
+        }
+        return res.status(StatusCodes.OK).json({ accessToken });
     }
 };

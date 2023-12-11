@@ -1,5 +1,7 @@
 import {server} from './server/Server';
 import { Knex } from './server/database/knex';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const startServer = () => {
     server.listen(process.env.PORT || 3333, () => {

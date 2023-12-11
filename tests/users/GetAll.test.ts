@@ -27,7 +27,6 @@ describe('Users - GetAll', () => {
             .get('/users')
             .send();
 
-        console.log('x-total-count:', Number(res.headers['x-total-count']));
         expect(Number(res.headers['x-total-count'])).toBeGreaterThan(0);
         expect(res.statusCode).toEqual(StatusCodes.OK);
         expect(res.body.length).toBeGreaterThan(0);
