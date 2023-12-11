@@ -2,11 +2,11 @@ import { ETableName } from '../../EtableNames';
 import { Knex } from '../../knex';
 import { IOccupation } from '../../models';
 
-export const create = async (user: Omit<IOccupation, 'id'>) : Promise<number | Error> => {
+export const create = async (occupation: Omit<IOccupation, 'id'>) : Promise<number | Error> => {
 
     try {
         const [result] = await Knex(ETableName.occupation)
-            .insert(user)
+            .insert(occupation)
             .returning('id');
 
         if (typeof result === 'object') {

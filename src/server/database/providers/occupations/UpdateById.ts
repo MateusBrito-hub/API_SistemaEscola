@@ -2,11 +2,11 @@ import { ETableName } from '../../EtableNames';
 import { Knex } from '../../knex';
 import { IOccupation } from '../../models';
 
-export const updateById = async (id: number, user: Omit<IOccupation,'id'>) : Promise<void | Error> => {
+export const updateById = async (id: number, occupation: Omit<IOccupation,'id'>) : Promise<void | Error> => {
 
     try {
         const result = await Knex(ETableName.occupation)
-            .update(user)
+            .update(occupation)
             .where('id', '=', id);
 
         if (result > 0) return;

@@ -2,12 +2,12 @@ import { ETableName } from '../../EtableNames';
 import { Knex } from '../../knex';
 import { IEmployee } from '../../models';
 
-export const create = async (user: Omit<IEmployee, 'id'>) : Promise<number | Error> => {
+export const create = async (employee: Omit<IEmployee, 'id'>) : Promise<number | Error> => {
 
     try {
 
         const [{ countOccupation }] = await Knex(ETableName.occupation)
-            .where('id','like', user.occupationId)
+            .where('id','like', employee.occupationId)
             .count<[{ countOccupation: number}]>('* as count');
 
         if (countOccupation === 0) {
@@ -15,7 +15,7 @@ export const create = async (user: Omit<IEmployee, 'id'>) : Promise<number | Err
         }
 
         const [{ countUser }] = await Knex(ETableName.user)
-            .where('id','like', user.userId)
+            .where('id','like', employee.userId)
             .count<[{ countUser: number}]>('* as count');
 
         if (countUser === 0) {
@@ -23,7 +23,7 @@ export const create = async (user: Omit<IEmployee, 'id'>) : Promise<number | Err
         }
 
         const [result] = await Knex(ETableName.employee)
-            .insert(user)
+            .insert(employee)
             .returning('id');
 
         if (typeof result === 'object') {
