@@ -1,14 +1,8 @@
-import * as create  from './Create';
-import * as getAll  from './GetAll';
-import * as getById from './GetById';
-import * as UpdateById from './UpdateById';
-import * as deleteById from './DeleteById';
+import * as signUp  from './SignUp';
+import * as signIn  from './SignIn';
 
 
 export const UsersController = {
-    ...create,
-    ...getAll,
-    ...getById,
-    ...UpdateById,
-    ...deleteById
+    ...signUp,
+    ...signIn
 };

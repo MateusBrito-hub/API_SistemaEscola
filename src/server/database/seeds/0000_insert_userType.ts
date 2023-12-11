@@ -7,6 +7,6 @@ export const seed = async(knex: Knex) => {
 
     if(!Number.isInteger(count) || Number(count) > 0) return;
 
-    const userTypesToInsert = ['Estudante', 'Funcionário', 'Responsavel'].map(userType => ({name: userType}));
+    const userTypesToInsert = ['Administrador', 'Estudante', 'Funcionário', 'Responsavel', 'Suporte'].map(userType => ({name: userType}));
     await knex(ETableName.userType).insert(userTypesToInsert);
 };

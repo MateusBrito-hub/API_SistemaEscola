@@ -4,11 +4,8 @@ const router = Router();
 
 
 // User Controllers
-router.get('/users', UsersController.getAllValidation ,UsersController.getAll);
-router.post('/users', UsersController.createValidation ,UsersController.create);
-router.get('/users/:id', UsersController.getByIdValidation ,UsersController.getById);
-router.delete('/users/:id', UsersController.deleteByIdValidation ,UsersController.deteleById);
-router.put('/users/:id', UsersController.updateByIdValidation ,UsersController.updateById);
+router.post('/login', UsersController.signInValidation ,UsersController.signIn);
+router.post('/register', UsersController.signUpValidation ,UsersController.signUp);
 
 // UserTypes Controllers
 router.get('/userTypes', UserTypesController.getAllValidation ,UserTypesController.getAll);

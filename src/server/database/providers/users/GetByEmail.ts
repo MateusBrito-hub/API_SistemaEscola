@@ -2,12 +2,12 @@ import { ETableName } from '../../EtableNames';
 import { Knex } from '../../knex';
 import { IUser } from '../../models';
 
-export const getById = async (id: number) : Promise<IUser | Error> => {
+export const getByEmail = async (email: string) : Promise<IUser | Error> => {
 
     try {
         const result = await Knex(ETableName.user)
             .select('*')
-            .where('id', '=', id)
+            .where('email', '=', email)
             .first();
 
         if (result) return result;

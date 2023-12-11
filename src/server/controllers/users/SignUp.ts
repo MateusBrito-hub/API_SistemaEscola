@@ -7,17 +7,16 @@ import { UsersProvider } from '../../database/providers/users';
 
 interface IBodyProps extends Omit<IUser, 'id'> {}
 
-export const createValidation = validation((getSchema) => ({
+export const signUpValidation = validation((getSchema) => ({
     body: getSchema<IBodyProps>(yup.object().shape({
         name: yup.string().required().min(3),
-        user: yup.string().required().min(3),
-        email: yup.string().required().email(),
+        email: yup.string().required().email().min(5),
         password: yup.string().required().min(6),
         userTypeId: yup.number().integer().required().min(1)
     }))
 }));
 
-export const create = async (req: Request<{},{},IBodyProps>, res: Response) => {
+export const signUp = async (req: Request<{},{},IBodyProps>, res: Response) => {
     const result = await UsersProvider.create(req.body);
 
     if (result instanceof Error){
