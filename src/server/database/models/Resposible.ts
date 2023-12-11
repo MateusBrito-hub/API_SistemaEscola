@@ -1,9 +1,3 @@
-enum Gender {
-    male = 'male',
-    famale = 'famale',
-    other = 'other'
-}
-
 export interface IResponsible {
     id: number
     name: string
@@ -11,7 +5,7 @@ export interface IResponsible {
     dateBirth: Date,
     cpf: string,
     rg: string,
-    gender: Gender,
+    gender: string,
     zipcode: string,
     address: string,
     number: string,
