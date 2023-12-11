@@ -6,7 +6,7 @@ import * as UpdateById from './UpdateById';
 import * as deleteById from './DeleteById';
 
 
-export const UsersProvider = {
+export const StudentResponsibleProvider = {
     ...count,
     ...create,
     ...getAll,

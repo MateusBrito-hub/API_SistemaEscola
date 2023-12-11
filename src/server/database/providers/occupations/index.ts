@@ -6,7 +6,7 @@ import * as UpdateById from './UpdateById';
 import * as deleteById from './DeleteById';
 
 
-export const UserTypesProvider = {
+export const OccupationTypesProvider = {
     ...count,
     ...create,
     ...getAll,
